@@ -1,0 +1,29 @@
+# ── Security + default cache (applied to every route) ──────────────────────
+  /*
+    X-Content-Type-Options: nosniff
+    X-Frame-Options: DENY
+    Referrer-Policy: strict-origin-when-cross-origin
+    Permissions-Policy: camera=(), microphone=(), geolocation=()
+    Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; frame-ancestors 'none'; object-src 'none'; base-uri 'self';
+    Cache-Control: public, max-age=0, must-revalidate
+
+  # ── Hashed JS/CSS bundles — Vite adds content hashes so these never change ──
+  /assets/*
+    Cache-Control: public, max-age=31536000, immutable
+
+  # ── Static assets — cache 7 days ────────────────────────────────────────────
+  /*.ico
+    Cache-Control: public, max-age=604800
+
+  /*.jpg
+    Cache-Control: public, max-age=604800
+
+  /*.png
+    Cache-Control: public, max-age=604800
+
+  /*.svg
+    Cache-Control: public, max-age=604800
+
+  /*.mp4
+    Cache-Control: public, max-age=604800
+  
